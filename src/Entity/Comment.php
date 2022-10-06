@@ -14,7 +14,7 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use function Symfony\Component\String\u;
 use Symfony\Component\Validator\Constraints as Assert;
-
+/** commentaire de samir sur Comment.php */
 /**
  * Defines the properties of the Comment entity to represent the blog comments.
  * See https://symfony.com/doc/current/doctrine.html#creating-an-entity-class.
