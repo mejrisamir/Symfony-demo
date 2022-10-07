@@ -80,7 +80,7 @@ Configure the virtual host : httpd-vhosts.conf
 Then access the application in your browser at the given URL (<https://localhost:8000> by default).
 
 
-Usaging MySql instead of SqlLite 
+Using MySql instead of Sqlite
 --------------------------------
 To get your application running with MySql, you have to make some config:
 
@@ -90,7 +90,7 @@ Change .env file to point to MySql database
 DATABASE_URL="mysql://root:@127.0.0.1:3306/symfdemo?serverVersion=mariadb-10.4.11"
 ```
 
-Create tables on the database whith migration process
+Create the tables on the database with migration process
 ```bash
 php .\bin\console make:migration
 php .\bin\console doctrine:migration:migrate
