@@ -20,13 +20,13 @@ Installation
 this command:
 
 ```bash
-$ symfony new --demo my_project
+$ symfony new --demo symfdemo
 ```
 
 Alternatively, you can use Composer:
 
 ```bash
-$ composer create-project symfony/symfony-demo my_project
+$ composer create-project symfony/symfony-demo symfdemo
 ```
 
 If you want to test the demo without installing anything locally, you can also
@@ -43,7 +43,7 @@ There's no need to configure anything to run the application. If you have
 [installed Symfony][4] binary, run this command:
 
 ```bash
-$ cd my_project/
+$ cd symfdemo/
 $ symfony serve
 ```
 
@@ -53,22 +53,32 @@ If you don't have the Symfony binary installed, run `php -S localhost:8000 -t pu
 to use the built-in PHP web server or [configure a web server][3] like Nginx or
 Apache to run the application.
 
-Usage
------
+Usage whith xampp windows 
+-------------------------
 
-There's no need to configure anything to run the application. If you have
-[installed Symfony][4] binary, run this command:
+Alternatively you can configure your application to run on Apache (xampp windows) :
 
+Enable listening on port 8080 : httpd.conf
 ```bash
-$ cd my_project/
-$ symfony serve
+Listen 8080
 ```
 
+Configure the virtual host : httpd-vhosts.conf
+```bash
+<VirtualHost *:8080>
+    DocumentRoot C:\xampp\htdocs\symfdemo\public
+    DirectoryIndex /index.php
+    <Directory C:\xampp\htdocs\symfdemo\public>
+        AllowOverride None
+        Order Allow,Deny
+        Allow from All
+        FallbackResource /index.php
+    </Directory>
+    ErrorLog C:\xampp\htdocs\symfdemo\project_error.log
+    CustomLog C:\xampp\htdocs\symfdemo\project_access.log combined
+</VirtualHost>
+```
 Then access the application in your browser at the given URL (<https://localhost:8000> by default).
-
-If you don't have the Symfony binary installed, run `php -S localhost:8000 -t public/`
-to use the built-in PHP web server or [configure a web server][3] like Nginx or
-Apache to run the application.
 
 Tests
 -----
@@ -76,7 +86,7 @@ Tests
 Execute this command to run tests:
 
 ```bash
-$ cd my_project/
+$ cd symfdemo/
 $ ./bin/phpunit
 ```
 
