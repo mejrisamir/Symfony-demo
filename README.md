@@ -53,10 +53,9 @@ If you don't have the Symfony binary installed, run `php -S localhost:8000 -t pu
 to use the built-in PHP web server or [configure a web server][3] like Nginx or
 Apache to run the application.
 
-Usage whith xampp windows 
+Usage with xampp windows 
 -------------------------
-
-Alternatively you can configure your application to run on Apache (xampp windows) :
+Alternatively you can configure your application to run on Apache (for exemple : xampp windows) :
 
 Enable listening on port 8080 : httpd.conf
 ```bash
@@ -80,18 +79,20 @@ Configure the virtual host : httpd-vhosts.conf
 ```
 Then access the application in your browser at the given URL (<https://localhost:8000> by default).
 
-Tests
------
 
-Execute this command to run tests:
+Usaging MySql instead of SqlLite 
+--------------------------------
+To get your application running with MySql, you have to make some config:
 
+Change .env file to point to MySql database
 ```bash
-$ cd symfdemo/
-$ ./bin/phpunit
+#DATABASE_URL=sqlite:///%kernel.project_dir%/data/database.sqlite
+DATABASE_URL="mysql://root:@127.0.0.1:3306/symfdemo?serverVersion=mariadb-10.4.11"
 ```
 
-[1]: https://symfony.com/doc/current/best_practices.html
-[2]: https://symfony.com/doc/current/setup.html#technical-requirements
-[3]: https://symfony.com/doc/current/setup/web_server_configuration.html
-[4]: https://symfony.com/download
-[5]: https://symfony.com/book
+Create tables on the database whith migration process
+```bash
+php .\bin\console make:migration
+php .\bin\console doctrine:migration:migrate
+```
+Then access the application in your browser at the given URL (<https://localhost:8000> by default).
