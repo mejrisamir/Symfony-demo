@@ -22,3 +22,5 @@
 npm-debug.log
 yarn-error.log
 ###< symfony/webpack-encore-bundle ###
+project_error.log
+project_access.log
